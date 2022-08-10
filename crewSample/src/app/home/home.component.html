@@ -1,0 +1,119 @@
+
+<div class="grid-container">
+
+  <div class="grid-item grid-item-1">
+    <table class="container">
+      <thead>
+        <tr>
+          <th><h1>{{'First Name' |translate}}</h1></th>
+          <th><h1>{{'Last Name' |translate}}</h1></th>
+          <th><h1>{{'Nationality'|translate}}</h1></th>
+          <th><h1>{{'Title'|translate}}</h1></th>
+          <th><h1>{{'Card Page'|translate}}</h1></th>
+          <th><h1>{{'Edit Page'|translate}}</h1></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let officer of officers">
+          <td>{{officer.firstName}}</td>
+          <td>{{officer.lastName}}</td>
+          <td>{{officer.nationality}}</td>
+          <td>{{officer.title}}</td>
+          <td>
+            <a routerLink="/officer/{{officer.id}}">
+              <button class="custom-btn btn-1" ><span>Card Detail</span></button>
+            </a>>
+
+          </td>
+          <td>
+            <button type="button" class="custom-btn btn-1" (click)="open(mymodal)">Edit Page</button>
+
+            <ng-template #mymodal let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Certificates</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div  class="modal-body">
+              {{officer.certificates}}
+              </div>
+            </ng-template>
+
+
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="grid-item grid-item-2">
+    <table class="container">
+      <thead>
+        <tr>
+          <th><h1>{{'First Name' |translate}}</h1></th>
+          <th><h1>{{'Last Name' |translate}}</h1></th>
+          <th><h1>{{'Nationality'|translate}}</h1></th>
+          <th><h1>{{'Title'|translate}}</h1></th>
+          <th><h1>{{'Card Page'|translate}}</h1></th>
+          <th><h1>{{'Edit Page'|translate}}</h1></th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let officerMachine of officerMachines">
+          <td>{{officerMachine.firstName}}</td>
+          <td>{{officerMachine.lastName}}</td>
+          <td>{{officerMachine.nationality}}</td>
+          <td>{{officerMachine.title}}</td>
+          <td>
+            <a routerLink="/officerMachine/{{officerMachine.id}}">
+              <button class="custom-btn btn-1"><span>Card Detail</span></button>
+            </a>>
+
+          </td>
+          <td>
+            <button class="custom-btn btn-1" (click)="open(mymodal2)" >Edit Page</button>
+
+
+
+            <ng-template #mymodal2 let-modal>
+              <div class="modal-header">
+                <h4 class="modal-title" id="modal-basic-title">Certificates</h4>
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div  class="modal-body">
+              {{officerMachine.certificates}}
+              </div>
+            </ng-template>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<nav class="rlt">
+  <ul>
+    <li>
+      <div class="custom-select">
+        <select #selectedLang (change)="switchLanguage(selectedLang.value)" >
+          <option *ngFor="let language of translate.getLangs()" [value]="language" [selected]="language ===translate.currentLang" >
+           {{language}}
+          </option>
+        </select>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+
+

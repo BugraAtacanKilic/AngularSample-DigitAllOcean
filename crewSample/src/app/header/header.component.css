@@ -1,0 +1,27 @@
+header{
+  background: none;
+  padding: 0;
+  border-bottom: 1px solid #e72929;
+}
+
+a{
+  color:#af1313
+}
+
+a:hover{
+  background: #e72929;
+  color: white;
+}
+
+.container{
+
+  margin-left: 80px;
+  display: flex;
+  justify-content:space-between;
+}
+
+a.logo{
+  font-weight: bold;
+  padding: 1em;
+}
+
